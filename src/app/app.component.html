@@ -1,2 +1,25 @@
-<!-- <app-listado-cursos> </app-listado-cursos> -->
-<app-listado-categorias></app-listado-categorias>
+<!-- Header with Title, Image, and Tabs -->
+<header>
+    <mat-toolbar color="primary">
+        <!-- First row for title and image -->
+        <div class="navbar-brand d-flex align-items-center">
+            <h3 class="mr-3">Curso: RXJSAngular</h3>
+            <img src="tu-imagen.png" alt="Imagen" style="max-height: 40px;">
+        </div>
+    </mat-toolbar>
+
+    <!-- Tabs -->
+    <mat-tab-group>
+        <mat-tab label="Categorías" [routerLink]="['/categorias']"></mat-tab>
+        <mat-tab label="Cursos" [routerLink]="['/cursos']"></mat-tab>
+    </mat-tab-group>
+</header>
+<!-- Body -->
+<main class="container mt-4">
+    <!-- Contenido dinámico de la aplicación (se mostrará aquí) -->
+    <router-outlet></router-outlet>
+</main>
+<!-- Footer -->
+<footer class="footer bg-light text-center py-3">
+    Derechos de autor ©Pitloco97 2023
+</footer>
