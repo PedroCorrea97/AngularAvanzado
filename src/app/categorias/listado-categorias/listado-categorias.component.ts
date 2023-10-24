@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
 import { Categoria } from 'src/app/models/categoria';
 import { MensajeConfirmacionComponent } from 'src/app/shared/mensaje-confirmacion/mensaje-confirmacion.component';
+import { EMPTY, Observable, catchError } from 'rxjs';
 
 @Component({
   selector: 'app-listado-categorias',
@@ -13,10 +14,11 @@ import { MensajeConfirmacionComponent } from 'src/app/shared/mensaje-confirmacio
 })
 export class ListadoCategoriasComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  dataSource : any;
+  categorias$ : Observable<Categoria[]>;
+  mensajeError = '';
 
   // Columnas tabla categorias
-  displayedColumns = ['id', 'nombre','Categoria ID','acciones'];
+  displayedColumns = ['id', 'nombre','descripcion','acciones'];
   pageRegister = 5;
   
   constructor(
@@ -27,17 +29,27 @@ export class ListadoCategoriasComponent implements OnInit{
       
     }
 
-ngOnInit() {
-  this.chargeCat();
-}
-    
-private chargeCat() { this.categoriesService.getAllCategories().subscribe((resp) => {
-  this.dataSource = resp; });
-}
+    ngOnInit() {
+      this.categorias$ = this.categoriesService.getAllCategories().pipe(
+        catchError(err => {
+          this.mensajeError = err;
+          return EMPTY;
+        })
+      );
+    }
 
-  deleteCategoria(categoria: Categoria){
-    const dialogRef = this.dialog.open(MensajeConfirmacionComponent, { width: '360', data:{ message: '¿Desea eliminar la categoria? ' + categoria.nombre} })
-    dialogRef.afterClosed().subscribe( resp => { if (resp == 'Si') { this.categoriesService.delete(categoria.id).subscribe ( resp => 
-      { this.chargeCat(); this.snackBar.open(' La categoria fue elimnada con exito ',  '', { duration:3000}); }); } this.cdr.detectChanges(); } )
-  }
+    private chargeCat() {
+      this.categorias$ = this.categoriesService.getAllCategories().pipe(
+        catchError(err => {
+          this.mensajeError = err;
+          return EMPTY;
+        })
+      );
+    }
+
+    deleteCategoria(categoria: Categoria){
+      const dialogRef = this.dialog.open(MensajeConfirmacionComponent, { width: '360', data:{ message: '¿Desea eliminar la categoria? ' + categoria.nombre} })
+      dialogRef.afterClosed().subscribe( resp => { if (resp == 'Si') { this.categoriesService.delete(categoria.id).subscribe ( resp => 
+        { this.chargeCat(); this.snackBar.open(' La categoria fue elimnada con exito ',  '', { duration:3000}); }); } this.cdr.detectChanges(); } )
+    }
 }
