@@ -12,9 +12,11 @@ export class CursosService {
   private http = inject(HttpClient);
 
   getAllCourses():Observable<Cursos[]>  {
-    return this.http.get<Cursos[]>(`${this.apiURL}`+`/categorias`, ).pipe(catchError(this.handleError));
+    return this.http.get<Cursos[]>(`${this.apiURL}`+`/cursos`, ).pipe(catchError(this.handleError));
   }
 
-  private handleError(err: HttpErrorResponse) { if( err.error instanceof ErrorEvent ) { console.warn('Cliente: ', err.message); }else{ console.warn('Cliente: ', err.status);}
+  private handleError(err: HttpErrorResponse):Observable<never> { if( err.error instanceof ErrorEvent ) { console.warn('Cliente: ', err.message); }else{ console.warn('Cliente: ', err.status);}
   return throwError(( ) =>  new Error (err.error.message)) }
+
+
 }

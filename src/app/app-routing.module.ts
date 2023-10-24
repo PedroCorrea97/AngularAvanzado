@@ -4,7 +4,7 @@ import { ListadoCategoriasComponent } from './categorias/listado-categorias/list
 import { ListadoCursosComponent } from './cursos/listado-cursos/listado-cursos.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/categorias', pathMatch: 'full' },
+    { path: '', redirectTo: '/cursos', pathMatch: 'full' },
     { path: 'categorias', component: ListadoCategoriasComponent },
     { path: 'cursos', component: ListadoCursosComponent },
 ];
