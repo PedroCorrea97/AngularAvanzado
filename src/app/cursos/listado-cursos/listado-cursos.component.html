@@ -9,7 +9,7 @@
     <div class="row mt-3">
         <mat-form-field>
             <mat-label>Categorias</mat-label>
-            <mat-select (change)="onSelectChange($event)">
+            <mat-select (selectionChange)="onSelectChange($event)">
                 <mat-option *ngFor="let cat of listadoCategorias" [value]="cat.id">
                     {{cat.nombre}}
                 </mat-option>
@@ -17,7 +17,7 @@
         </mat-form-field>
     </div>
     <div class="mat-elevation-z8">
-        <table mat-table class="w-100" aria-label="Elements" [dataSource]="dataSource">
+        <table mat-table class="w-100" aria-label="Elements" [dataSource]="cursos$ | async">
             <!-- Id Column -->
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -46,7 +46,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let cat; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator #paginator [length]="dataSource.totalCounts$ | async" [pageIndex]="0" [pageSize]="pageRegister"
+        <mat-paginator #paginator [pageIndex]="0" [pageSize]="pageRegister"
             [pageSizeOptions]="[3, 5, 10, 20, 30]" aria-label="Select page"> </mat-paginator>
     </div>
 </main>

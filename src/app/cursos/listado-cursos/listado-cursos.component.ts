@@ -1,4 +1,5 @@
-import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { EMPTY, Observable, Subscription, catchError, map } from 'rxjs';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { CategoriasService } from 'src/app/services/categorias/categorias.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -6,6 +7,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Categoria } from 'src/app/models/categoria';
 import { MensajeConfirmacionComponent } from 'src/app/shared/mensaje-confirmacion/mensaje-confirmacion.component';
 import { CursosService } from 'src/app/services/cursos/cursos.service';
+import { Cursos } from 'src/app/models/cursos';
 @Component({
   selector: 'app-listado-cursos',
   templateUrl: './listado-cursos.component.html',
@@ -15,9 +17,13 @@ export class ListadoCursosComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource: any;
   listadoCategorias: any
-  // Columnas tabla categorias
+  selectedCategoryId: number | null;
   displayedColumns = ['id', 'nombre', 'categoriaId', 'acciones'];
   pageRegister = 5;
+  mensajeError = "";
+  cursos$! : Observable<Cursos[]>;
+  sub!:Subscription;
+  
 
   constructor(
     private cursosService: CursosService,
@@ -28,10 +34,16 @@ export class ListadoCursosComponent {
 
   }
   ngOnInit() {
+    this.cursos$ = this.cursosService.getAllCourses().pipe(
+      catchError(err=>{
+        this.mensajeError = err;
+        return EMPTY;
+      })
+    );
     this.initSelect();
-
     this.chargeCourses();
   }
+
 
   private initSelect() {
     this.categoriesService.getAllCategories().subscribe((resp) => {
@@ -43,9 +55,22 @@ export class ListadoCursosComponent {
     this.cursosService.getAllCourses().subscribe((resp) => { this.dataSource = resp; });
   }
 
-  onSelectChange(event){
-
+  onSelectChange(event: any) {
+    this.selectedCategoryId = event.value;
+    this.cursos$ = this.cursosService.getAllCourses().pipe(
+      catchError(err => {
+        this.mensajeError = err;
+        return EMPTY;
+      }),
+      map(cursos => {
+        if (this.selectedCategoryId === null) {
+          return cursos;
+        }
+        return cursos.filter(curso => curso.categoriaId === this.selectedCategoryId);
+      })
+    );
   }
+  
 
   deleteCategoria(categoria: Categoria) {
     const dialogRef = this.dialog.open(MensajeConfirmacionComponent, { width: '360', data: { message: '¿Desea eliminar la categoria? ' + categoria.nombre } })
