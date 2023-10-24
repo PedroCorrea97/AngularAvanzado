@@ -1,7 +1,9 @@
 <main class="container-fluid">
     <div class="row mt-3">
-        <div class="col-6"> <h1> Listado Cursos </h1> </div>
-        <div class="col-6 text-end"> <button mat-raised-button color="primary"> <mat-icon>add</mat-icon> Agregar Curso</button> </div>
+        <div class="col-6">
+            <h1> Listado Cursos </h1>
+        </div>
+        <!-- <div class="col-6 text-end">  <button mat-raised-button color="primary"> <mat-icon>add</mat-icon> Agregar Categoria</button>  </div> -->
     </div>
     <div class="row mt-3">
         <mat-form-field>
@@ -27,7 +29,7 @@
             </ng-container>
             <!-- Description Column -->
             <ng-container matColumnDef="categoriaId">
-                <th mat-header-cell *matHeaderCellDef class="">Categoria ID</th>
+                <th mat-header-cell *matHeaderCellDef class="">Categoria</th>
                 <td mat-cell *matCellDef="let cat">{{cat.categoriaId}}</td>
             </ng-container>
             <!-- Precio Column -->
@@ -40,18 +42,25 @@
                 <th mat-header-cell *matHeaderCellDef class="">Precio + IVA</th>
                 <td mat-cell *matCellDef="let cat">{{ cat.precioIVA | currency:'MXN':'symbol':'1.2-2' }} </td>
             </ng-container>
+            <!-- Categoria Column -->
+            <ng-container matColumnDef="categoria">
+                <th mat-header-cell *matHeaderCellDef class="">Descripcion Categoria</th>
+                <td mat-cell *matCellDef="let cat">{{ cat.categoria }} </td>
+            </ng-container>
             <!-- actions Column -->
             <ng-container matColumnDef="acciones">
                 <th mat-header-cell *matHeaderCellDef>Acciones</th>
                 <td mat-cell *matCellDef="let cat">
                     <a alt="Editar"><mat-icon matTooltip="Editar Categoria">edit</mat-icon></a>
-                    <a alt="Eliminar"  class="g-pointer"><mat-icon matTooltip="Eliminar Categoria">delete</mat-icon></a>
+                    <a alt="Eliminar" (click)="deleteCategoria(cat)" class="g-pointer"><mat-icon
+                            matTooltip="Eliminar Categoria">delete</mat-icon></a>
                 </td>
             </ng-container>
 
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let cat; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator #paginator [pageIndex]="0" [pageSize]="pageRegister" [pageSizeOptions]="[3, 5, 10, 20, 30]" aria-label="Select page"> </mat-paginator>
+        <mat-paginator #paginator [pageIndex]="0" [pageSize]="pageRegister" [pageSizeOptions]="[3, 5, 10, 20, 30]"
+            aria-label="Select page"> </mat-paginator>
     </div>
 </main>

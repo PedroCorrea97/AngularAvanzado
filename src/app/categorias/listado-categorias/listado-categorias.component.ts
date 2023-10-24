@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
 import { Categoria } from 'src/app/models/categoria';
 import { MensajeConfirmacionComponent } from 'src/app/shared/mensaje-confirmacion/mensaje-confirmacion.component';
-import { EMPTY, Observable, catchError } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listado-categorias',
@@ -14,9 +14,9 @@ import { EMPTY, Observable, catchError } from 'rxjs';
 })
 export class ListadoCategoriasComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  displayedColumns = ['id', 'nombre','descripcion','acciones'];
+  displayedColumns = ['id', 'nombre','descripcion'/* ,'acciones' */];
   pageRegister = 5;
-  categoria$! : Observable<Categoria>;
+  categoria$! : Observable<Categoria[]>;
   mensajeError = ""
   constructor(
     private categoriesService : CategoriasService,

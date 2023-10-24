@@ -1,24 +1,24 @@
-import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { EMPTY, Observable, Subscription, catchError, map } from 'rxjs';
-import { Categoria } from 'src/app/models/categoria';
-import { Cursos } from 'src/app/models/cursos';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { CategoriasService } from 'src/app/services/categorias/categorias.service';
-import { CursosService } from 'src/app/services/cursos/cursos.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatPaginator } from '@angular/material/paginator';
+import { Categoria } from 'src/app/models/categoria';
 import { MensajeConfirmacionComponent } from 'src/app/shared/mensaje-confirmacion/mensaje-confirmacion.component';
-
+import { CursosService } from 'src/app/services/cursos/cursos.service';
+import { Cursos } from 'src/app/models/cursos';
 @Component({
   selector: 'app-listado-cursos',
   templateUrl: './listado-cursos.component.html',
-  styleUrls: ['./listado-cursos.component.scss']
+  styleUrls: ['./listado-cursos.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListadoCursosComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource: any;
   selectedCategoryId: number | null;
-  displayedColumns = ['id', 'nombre', 'categoriaId', 'precio','precioIVA', 'acciones'];
+  displayedColumns = ['id', 'nombre', 'categoriaId', 'precio','precioIVA','categoria'/* , 'acciones' */];
   pageRegister = 5;
   mensajeError = "";
   cursos$! : Observable<Cursos[]>;
@@ -43,20 +43,15 @@ export class ListadoCursosComponent {
   }
 
   private chargeCourses() {
-    this.cursos$ = this.cursosService.cursos$;
+    this.cursos$ = this.cursosService.cursosConCategoria$.pipe(catchError(err => { this.mensajeError = err; return EMPTY; }));
   }
 
   onSelectChange(event: any) {
     this.selectedCategoryId = event.value;
-    this.cursos$ = this.cursosService.cursos$.pipe(
-      catchError(err => {
-        this.mensajeError = err;
-        return EMPTY;
-      }),
+    this.cursos$ = this.cursosService.cursosConCategoria$.pipe(
+      catchError(err => { this.mensajeError = err; return EMPTY; }),
       map(cursos => {
-        if (this.selectedCategoryId === null) {
-          return cursos;
-        }
+        if (this.selectedCategoryId === null) { return cursos; }
         return cursos.filter(curso => curso.categoriaId === this.selectedCategoryId);
       })
     );
