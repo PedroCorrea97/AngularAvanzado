@@ -1,10 +1,10 @@
 import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
-import { categoriesDataSource } from './categorias.data';
 import { CategoriasService } from 'src/app/services/categorias/categorias.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
-import { tap } from 'rxjs';
+import { Categoria } from 'src/app/models/categoria';
+import { MensajeConfirmacionComponent } from 'src/app/shared/mensaje-confirmacion/mensaje-confirmacion.component';
 
 @Component({
   selector: 'app-listado-categorias',
@@ -13,21 +13,31 @@ import { tap } from 'rxjs';
 })
 export class ListadoCategoriasComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  dataSource! : categoriesDataSource;
-  pageRegister = 8;
+  dataSource : any;
 
-  displayedColumns = ['id', 'nombre', 'descripcion'];
-  constructor( private categoriesService: CategoriasService,
-    private dialog: MatDialog,
-    private snakcBar: MatSnackBar,
-    private cdr: ChangeDetectorRef ) 
-    { this.dataSource =  new categoriesDataSource(categoriesService) }
+  // Columnas tabla categorias
+  displayedColumns = ['id', 'nombre','descripcion','acciones'];
+  pageRegister = 5;
+  
+  constructor(
+    private categoriesService : CategoriasService,
+    private cdr: ChangeDetectorRef,
+    private dialog : MatDialog,
+    private snackBar : MatSnackBar){
+      
+    }
 
-  ngAfterViewInit() { 
-    this.paginator.page.pipe(tap(()=>{ 
-      this.dataSource.getCategorias(this.paginator.pageIndex + 1, this.paginator.pageSize) })).subscribe();
+ngOnInit() {
+  this.chargeCat();
+}
+    
+private chargeCat() { this.categoriesService.getAllCategories().subscribe((resp) => {
+  this.dataSource = resp; });
+}
+
+  deleteCategoria(categoria: Categoria){
+    const dialogRef = this.dialog.open(MensajeConfirmacionComponent, { width: '360', data:{ message: '¿Desea eliminar la categoria? ' + categoria.nombre} })
+    dialogRef.afterClosed().subscribe( resp => { if (resp == 'Si') { this.categoriesService.delete(categoria.id).subscribe ( resp => 
+      { this.chargeCat(); this.snackBar.open(' La categoria fue elimnada con exito ',  '', { duration:3000}); }); } this.cdr.detectChanges(); } )
   }
-
-  ngOnInit() { this.chargeCat(); }
-  private chargeCat() { this.dataSource.getCategorias(1, this.pageRegister); }
 }

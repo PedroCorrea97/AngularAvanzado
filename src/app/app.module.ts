@@ -5,20 +5,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoriasModule } from './categorias/categorias.module';
 import { SharedModule } from './shared/shared.module';
 import { CursosModule } from './cursos/cursos.module';
-import { CategoriasService } from './services/categorias/categorias.service';
+import { HttpClientModule } from '@angular/common/http';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { getPaginatorIntl } from './shared/customPaginatorint.util';
+import { MaterialModule } from './shared/material/material.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
-    BrowserAnimationsModule,
+    AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     CategoriasModule,
     CursosModule,
+    HttpClientModule,
+    MaterialModule,
     SharedModule
   ],
-  providers: [CategoriasService],
+  providers: [{ provide: MatPaginatorIntl, useValue: getPaginatorIntl() }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

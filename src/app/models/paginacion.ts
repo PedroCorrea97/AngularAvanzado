@@ -1,6 +1,5 @@
 export class Paginacion <T>{
     constructor( init?: Partial <T> ){ Object.assign(this, init) }
-
     pageIndex: number = 1;
     pageZise: number = 3;
     total: number = 0;
