@@ -16,7 +16,7 @@ export class ListadoCategoriasComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   displayedColumns = ['id', 'nombre','descripcion'/* ,'acciones' */];
   pageRegister = 5;
-  categoria$! : Observable<Categoria>;
+  categoria$! : Observable<Categoria[]>;
   mensajeError = ""
   constructor(
     private categoriesService : CategoriasService,

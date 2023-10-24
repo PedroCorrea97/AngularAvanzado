@@ -11,7 +11,7 @@ export class CategoriasService {
   apiURL = environment.apiurl;
   private http = inject(HttpClient);
 
-  categoria$ = this.http.get<Categoria>(`${this.apiURL}` + `/categorias`).pipe(catchError(this.handleError));
+  categoria$ = this.http.get<Categoria[]>(`${this.apiURL}` + `/categorias`).pipe(catchError(this.handleError));
 
   delete(id: number) {
     return this.http.delete(`${this.apiURL}/categorias/${id}`).pipe(catchError(this.handleError))
