@@ -16,28 +16,28 @@ export class ListadoCategoriasComponent implements OnInit{
   dataSource : any;
 
   // Columnas tabla categorias
-  displayedColumns = ['id', 'nombre','Categoria ID','acciones'];
+  displayedColumns = ['id', 'nombre','descripcion','acciones'];
   pageRegister = 5;
-  
+
   constructor(
     private categoriesService : CategoriasService,
     private cdr: ChangeDetectorRef,
     private dialog : MatDialog,
     private snackBar : MatSnackBar){
-      
+
     }
 
 ngOnInit() {
   this.chargeCat();
 }
-    
+
 private chargeCat() { this.categoriesService.getAllCategories().subscribe((resp) => {
   this.dataSource = resp; });
 }
 
   deleteCategoria(categoria: Categoria){
     const dialogRef = this.dialog.open(MensajeConfirmacionComponent, { width: '360', data:{ message: '¿Desea eliminar la categoria? ' + categoria.nombre} })
-    dialogRef.afterClosed().subscribe( resp => { if (resp == 'Si') { this.categoriesService.delete(categoria.id).subscribe ( resp => 
+    dialogRef.afterClosed().subscribe( resp => { if (resp == 'Si') { this.categoriesService.delete(categoria.id).subscribe ( resp =>
       { this.chargeCat(); this.snackBar.open(' La categoria fue elimnada con exito ',  '', { duration:3000}); }); } this.cdr.detectChanges(); } )
   }
 }
