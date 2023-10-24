@@ -1,0 +1,42 @@
+{
+    "categorias": [
+      { "id": 1, "nombre": "Desarrollo Web", "descripcion": "Desarrollo Web" },
+      { "id": 2, "nombre": "Ciencias de la Información", "descripcion": "Ciencias de la Información" },
+      { "id": 3, "nombre": "Desarrollo Móvil", "descripcion": "" },
+      { "id": 4, "nombre": "Lenguajes de Programación", "descripcion": "" },
+      { "id": 5, "nombre": "Diseño de Videojuegos", "descripcion": "" },
+      { "id": 6, "nombre": "Diseño y Desarollo de Bases de Datos", "descripcion": "" },
+      { "id": 7, "nombre": "Testeo de Software", "descripcion": "" },
+      { "id": 8, "nombre": "Ingeniería de Software", "descripcion": "" },
+      { "id": 9, "nombre": "Desarrollo sin Código", "descripcion": "" }
+    ],
+    "cursos": [
+      { "id": 1, "nombre": "JavaScript", "categoriaId": 1 },
+      { "id": 2, "nombre": "Angular", "categoriaId": 1 },
+      { "id": 3, "nombre": "ASP.NET Core", "categoriaId": 1 },
+      { "id": 4, "nombre": "Python", "categoriaId": 2 },
+      { "id": 5, "nombre": "Aprendizaje Automático", "categoriaId": 2 },
+      { "id": 6, "nombre": "Inteligencia Artificial", "categoriaId": 2 },
+      { "id": 7, "nombre": "Flutter", "categoriaId": 3 },
+      { "id": 8, "nombre": "Swift", "categoriaId": 3 },
+      { "id": 9, "nombre": "Kotlin", "categoriaId": 3 },
+      { "id": 10, "nombre": "C Sharp", "categoriaId": 4 },
+      { "id": 11, "nombre": "Java", "categoriaId": 4 },
+      { "id": 12, "nombre": "C++", "categoriaId": 4 },
+      { "id": 13, "nombre": "Unity", "categoriaId": 5 },
+      { "id": 14, "nombre": "Unreal Engine", "categoriaId": 5 },
+      { "id": 15, "nombre": "Godot", "categoriaId": 5 },
+      { "id": 16, "nombre": "SQL Server", "categoriaId": 6 },
+      { "id": 17, "nombre": "MySQL", "categoriaId": 6 },
+      { "id": 18, "nombre": "PostgreSQL", "categoriaId": 6 },
+      { "id": 19, "nombre": "Selenium Web Driver", "categoriaId": 7 },
+      { "id": 20, "nombre": "Cypress", "categoriaId": 7 },
+      { "id": 21, "nombre": "Jest", "categoriaId": 7 },
+      { "id": 22, "nombre": "Arquitecture de Software", "categoriaId": 8 },
+      { "id": 23, "nombre": "Patrones de Diseño", "categoriaId": 8 },
+      { "id": 24, "nombre": "Clean Architecture", "categoriaId": 8 },
+      { "id": 25, "nombre": "Wordpress", "categoriaId": 9 },
+      { "id": 26, "nombre": "Microsoft Power Platform", "categoriaId": 9 },
+      { "id": 27, "nombre": "Wix", "categoriaId": 9 }
+    ]
+  }
