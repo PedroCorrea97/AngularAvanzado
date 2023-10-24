@@ -10,13 +10,11 @@
                 <i class="fa-brands fa-twitter"></i>
                 <!-- <img src="tu-imagen.png" alt="Imagen" style="max-height: 40px;"> -->
             </div>
+            <div class="px-4">
+                <button mat-raised-button [routerLink]="['/categorias']">Categorias </button>
+                <button mat-raised-button [routerLink]="['/cursos']" class="m-2">Cursos </button>
+            </div>
         </mat-toolbar>
-    
-        <!-- Tabs -->
-        <!-- <mat-tab-group>
-            <mat-tab label="Categorías" [routerLink]="['/categorias']"></mat-tab>
-            <mat-tab label="Cursos" [routerLink]="['/cursos']"></mat-tab>
-        </mat-tab-group> -->
     </header>
     <!-- Body -->
     <main class="container mt-4">

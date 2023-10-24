@@ -4,7 +4,7 @@
         <div class="col-6 text-end"> <button mat-raised-button color="primary"> <mat-icon>add</mat-icon> Agregar Categoria</button> </div>
     </div>
     <div class="mat-elevation-z8">
-        <table mat-table class="w-100" aria-label="Elements" [dataSource]="categorias$ | async">
+        <table mat-table class="w-100" aria-label="Elements" [dataSource]="categoria$ | async">
             <!-- Id Column -->
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -33,5 +33,8 @@
             <tr mat-row *matRowDef="let cat; columns: displayedColumns;"></tr>
         </table>
         <mat-paginator #paginator [pageIndex]="0" [pageSize]="pageRegister" [pageSizeOptions]="[3, 5, 10, 20, 30]" aria-label="Select page"> </mat-paginator>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="mensajeError">
+        {{mensajeError}}
     </div>
 </main>

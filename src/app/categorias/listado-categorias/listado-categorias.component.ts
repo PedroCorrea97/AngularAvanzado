@@ -14,13 +14,10 @@ import { EMPTY, Observable, catchError } from 'rxjs';
 })
 export class ListadoCategoriasComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  categorias$ : Observable<Categoria[]>;
-  mensajeError = '';
-
-  // Columnas tabla categorias
   displayedColumns = ['id', 'nombre','descripcion','acciones'];
   pageRegister = 5;
-  
+  categoria$! : Observable<Categoria>;
+  mensajeError = ""
   constructor(
     private categoriesService : CategoriasService,
     private cdr: ChangeDetectorRef,
@@ -29,27 +26,15 @@ export class ListadoCategoriasComponent implements OnInit{
       
     }
 
-    ngOnInit() {
-      this.categorias$ = this.categoriesService.getAllCategories().pipe(
-        catchError(err => {
-          this.mensajeError = err;
-          return EMPTY;
-        })
-      );
-    }
+ngOnInit() {
+  this.chargeCat();
+}
+    
+private chargeCat() { this.categoria$ = this.categoriesService.categoria$; }
 
-    private chargeCat() {
-      this.categorias$ = this.categoriesService.getAllCategories().pipe(
-        catchError(err => {
-          this.mensajeError = err;
-          return EMPTY;
-        })
-      );
-    }
-
-    deleteCategoria(categoria: Categoria){
-      const dialogRef = this.dialog.open(MensajeConfirmacionComponent, { width: '360', data:{ message: '¿Desea eliminar la categoria? ' + categoria.nombre} })
-      dialogRef.afterClosed().subscribe( resp => { if (resp == 'Si') { this.categoriesService.delete(categoria.id).subscribe ( resp => 
-        { this.chargeCat(); this.snackBar.open(' La categoria fue elimnada con exito ',  '', { duration:3000}); }); } this.cdr.detectChanges(); } )
-    }
+  deleteCategoria(categoria: Categoria){
+    const dialogRef = this.dialog.open(MensajeConfirmacionComponent, { width: '360', data:{ message: '¿Desea eliminar la categoria? ' + categoria.nombre} })
+    dialogRef.afterClosed().subscribe( resp => { if (resp == 'Si') { this.categoriesService.delete(categoria.id).subscribe ( resp => 
+      { this.chargeCat(); this.snackBar.open(' La categoria fue elimnada con exito ',  '', { duration:3000}); }); } this.cdr.detectChanges(); } )
+  }
 }
