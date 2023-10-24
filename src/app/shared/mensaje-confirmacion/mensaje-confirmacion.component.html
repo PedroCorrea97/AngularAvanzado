@@ -1,0 +1,8 @@
+<h1 class="text-center" mat-dialog-title></h1>
+<mat-dialog-content class="text-center">
+    <p>  {{message}} </p>
+</mat-dialog-content>
+<mat-dialog-actions class="ms-3">
+    <button mat-raised-button color="accent" cdkFocusInitial  [mat-dialog-close]="textAcept" > Aceptar </button>
+    <button mat-raised-button (click)="close()"> Cancelar</button>
+</mat-dialog-actions>
