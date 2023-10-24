@@ -16,7 +16,7 @@ export class ListadoCategoriasComponent implements OnInit{
   dataSource : any;
 
   // Columnas tabla categorias
-  displayedColumns = ['id', 'nombre','descripcion','acciones'];
+  displayedColumns = ['id', 'nombre','Categoria ID','acciones'];
   pageRegister = 5;
   
   constructor(
