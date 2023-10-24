@@ -3,9 +3,15 @@
     <header>
         <mat-toolbar>
             <!-- First row for title and image -->
-            <div class="navbar-brand d-flex align-items-center">
+            <div class="navbar-brand d-flex align-items-center text-light">
                 <h3 class="mr-3">Im19th</h3> &nbsp;
                 <i class="fa-brands fa-twitch fa-xl"></i>        
+            </div>
+            <div class="px-4">
+                <mat-chip-listbox>
+                    <mat-chip-option color="warn" [routerLink]="['/cursos']">Cursos</mat-chip-option>
+                    <mat-chip-option color="warn" [routerLink]="['/categorias']">Categorias</mat-chip-option>
+                </mat-chip-listbox>
             </div>
         </mat-toolbar>
     </header>
@@ -16,7 +22,5 @@
 		</div>
     </main>
     <!-- Footer -->
-    <footer class="footer py-3">
-        ©Im19th 2023
-    </footer>
+    <footer class="footer py-3"> ©Im19th 2023 </footer>
 </div>

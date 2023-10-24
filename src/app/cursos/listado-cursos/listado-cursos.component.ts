@@ -16,14 +16,13 @@ import { Cursos } from 'src/app/models/cursos';
 export class ListadoCursosComponent {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource: any;
-  listadoCategorias: any
   selectedCategoryId: number | null;
-  displayedColumns = ['id', 'nombre', 'categoriaId', 'acciones'];
+  displayedColumns = ['id', 'nombre', 'categoriaId', 'precio','precioIVA'/* , 'acciones' */];
   pageRegister = 5;
   mensajeError = "";
   cursos$! : Observable<Cursos[]>;
   sub!:Subscription;
-  
+  listadoCat$! : Observable<any>;
 
   constructor(
     private cursosService: CursosService,
@@ -34,30 +33,21 @@ export class ListadoCursosComponent {
 
   }
   ngOnInit() {
-    this.cursos$ = this.cursosService.getAllCourses().pipe(
-      catchError(err=>{
-        this.mensajeError = err;
-        return EMPTY;
-      })
-    );
     this.initSelect();
     this.chargeCourses();
   }
 
-
   private initSelect() {
-    this.categoriesService.getAllCategories().subscribe((resp) => {
-      this.listadoCategorias = resp;
-    });
+    this.listadoCat$ = this.categoriesService.categoria$;
   }
 
   private chargeCourses() {
-    this.cursosService.getAllCourses().subscribe((resp) => { this.dataSource = resp; });
+    this.cursos$ = this.cursosService.cursos$;
   }
 
   onSelectChange(event: any) {
     this.selectedCategoryId = event.value;
-    this.cursos$ = this.cursosService.getAllCourses().pipe(
+    this.cursos$ = this.cursosService.cursos$.pipe(
       catchError(err => {
         this.mensajeError = err;
         return EMPTY;

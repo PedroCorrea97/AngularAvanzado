@@ -1,16 +1,13 @@
 <main class="container-fluid">
     <div class="row mt-3">
-        <div class="col-6">
-            <h1> Listado Cursos </h1>
-        </div>
-        <div class="col-6 text-end"> <button mat-raised-button color="primary"> <mat-icon>add</mat-icon> Agregar
-                Categoria</button> </div>
+        <div class="col-6"> <h1> Listado Cursos </h1> </div>
+        <!-- <div class="col-6 text-end">  <button mat-raised-button color="primary"> <mat-icon>add</mat-icon> Agregar Categoria</button>  </div> -->
     </div>
     <div class="row mt-3">
         <mat-form-field>
             <mat-label>Categorias</mat-label>
             <mat-select (selectionChange)="onSelectChange($event)">
-                <mat-option *ngFor="let cat of listadoCategorias" [value]="cat.id">
+                <mat-option *ngFor="let cat of listadoCat$ | async" [value]="cat.id">
                     {{cat.nombre}}
                 </mat-option>
             </mat-select>
@@ -33,6 +30,16 @@
                 <th mat-header-cell *matHeaderCellDef class="">Categoria</th>
                 <td mat-cell *matCellDef="let cat">{{cat.categoriaId}}</td>
             </ng-container>
+            <!-- Precio Column -->
+            <ng-container matColumnDef="precio">
+                <th mat-header-cell *matHeaderCellDef class="">Precio</th>
+                <td mat-cell *matCellDef="let cat">{{ cat.precio | currency:'MXN':'symbol':'1.2-2' }} </td>
+            </ng-container>
+             <!-- PrecioIVA Column -->
+             <ng-container matColumnDef="precioIVA">
+                <th mat-header-cell *matHeaderCellDef class="">Precio + IVA</th>
+                <td mat-cell *matCellDef="let cat">{{ cat.precioIVA | currency:'MXN':'symbol':'1.2-2' }} </td>
+            </ng-container>
             <!-- actions Column -->
             <ng-container matColumnDef="acciones">
                 <th mat-header-cell *matHeaderCellDef>Acciones</th>
@@ -46,7 +53,7 @@
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let cat; columns: displayedColumns;"></tr>
         </table>
-        <mat-paginator #paginator [pageIndex]="0" [pageSize]="pageRegister"
-            [pageSizeOptions]="[3, 5, 10, 20, 30]" aria-label="Select page"> </mat-paginator>
+        <mat-paginator #paginator [pageIndex]="0" [pageSize]="pageRegister" [pageSizeOptions]="[3, 5, 10, 20, 30]"
+            aria-label="Select page"> </mat-paginator>
     </div>
 </main>

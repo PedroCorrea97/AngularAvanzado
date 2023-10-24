@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
 import { Categoria } from 'src/app/models/categoria';
 import { MensajeConfirmacionComponent } from 'src/app/shared/mensaje-confirmacion/mensaje-confirmacion.component';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listado-categorias',
@@ -13,12 +14,10 @@ import { MensajeConfirmacionComponent } from 'src/app/shared/mensaje-confirmacio
 })
 export class ListadoCategoriasComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  dataSource : any;
-
-  // Columnas tabla categorias
-  displayedColumns = ['id', 'nombre','Categoria ID','acciones'];
+  displayedColumns = ['id', 'nombre','descripcion'/* ,'acciones' */];
   pageRegister = 5;
-  
+  categoria$! : Observable<Categoria>;
+  mensajeError = ""
   constructor(
     private categoriesService : CategoriasService,
     private cdr: ChangeDetectorRef,
@@ -31,9 +30,7 @@ ngOnInit() {
   this.chargeCat();
 }
     
-private chargeCat() { this.categoriesService.getAllCategories().subscribe((resp) => {
-  this.dataSource = resp; });
-}
+private chargeCat() { this.categoria$ = this.categoriesService.categoria$; }
 
   deleteCategoria(categoria: Categoria){
     const dialogRef = this.dialog.open(MensajeConfirmacionComponent, { width: '360', data:{ message: '¿Desea eliminar la categoria? ' + categoria.nombre} })
