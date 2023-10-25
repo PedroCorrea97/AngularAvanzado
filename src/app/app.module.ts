@@ -5,15 +5,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CategoriasModule } from './categorias/categorias.module';
 import { SharedModule } from './shared/shared.module';
 import { CursosModule } from './cursos/cursos.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { getPaginatorIntl } from './shared/customPaginatorint.util';
 import { MaterialModule } from './shared/material/material.module';
 import { AppRoutingModule } from './app-routing.module';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { SpinnerComponent } from './spinner/spinner/spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    SpinnerComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -25,7 +28,7 @@ import { AppRoutingModule } from './app-routing.module';
     MaterialModule,
     SharedModule
   ],
-  providers: [{ provide: MatPaginatorIntl, useValue: getPaginatorIntl() }],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

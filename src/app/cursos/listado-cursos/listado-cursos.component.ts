@@ -1,5 +1,5 @@
-import { EMPTY, Observable, Subscription, catchError, map } from 'rxjs';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { EMPTY, Observable, Subject, Subscription, catchError, map, combineLatest, BehaviorSubject } from 'rxjs';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { CategoriasService } from 'src/app/services/categorias/categorias.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -14,7 +14,7 @@ import { Cursos } from 'src/app/models/cursos';
   styleUrls: ['./listado-cursos.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ListadoCursosComponent {
+export class ListadoCursosComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource: any;
   selectedCategoryId: number | null;
@@ -24,6 +24,9 @@ export class ListadoCursosComponent {
   cursos$! : Observable<Cursos[]>;
   sub!:Subscription;
   listadoCat$! : Observable<any>;
+
+  private categoriaSeleccionadaSubject = new BehaviorSubject<number>(0);
+  categoriaSeleccionadaAction$ = this.categoriaSeleccionadaSubject.asObservable();
 
   constructor(
     private cursosService: CursosService,
@@ -43,19 +46,35 @@ export class ListadoCursosComponent {
   }
 
   private chargeCourses() {
-    this.cursos$ = this.cursosService.cursosConCategoria$.pipe(catchError(err => { this.mensajeError = err; return EMPTY; }));
+    this.cursos$ = combineLatest([
+      this.cursosService.cursosConCategoria$,
+      this.categoriaSeleccionadaAction$
+    ]).pipe(
+      map(([cursos,categoriaSeleccionadaId])=>
+        cursos.filter((curso)=> categoriaSeleccionadaId !=0 ? 
+        curso.categoriaId == categoriaSeleccionadaId:true)
+      ),
+      catchError(err=>{
+        this.mensajeError = err;
+        return EMPTY;
+      })
+    )
   }
 
-  onSelectChange(event: any) {
-    this.selectedCategoryId = event.value;
-    this.cursos$ = this.cursosService.cursosConCategoria$.pipe(
-      catchError(err => { this.mensajeError = err; return EMPTY; }),
-      map(cursos => {
-        if (this.selectedCategoryId === null) { return cursos; }
-        return cursos.filter(curso => curso.categoriaId === this.selectedCategoryId);
-      })
-    );
+  onselected (event){
+    this.categoriaSeleccionadaSubject.next(event.value)
   }
+
+  // onSelectChange(event: any) {
+  //   this.selectedCategoryId = event.value;
+  //   this.cursos$ = this.cursosService.cursosConCategoria$.pipe(
+  //     catchError(err => { this.mensajeError = err; return EMPTY; }),
+  //     map(cursos => {
+  //       if (this.selectedCategoryId === null) { return cursos; }
+  //       return cursos.filter(curso => curso.categoriaId === this.selectedCategoryId);
+  //     })
+  //   );
+  // }
   
 
   deleteCategoria(categoria: Categoria) {

@@ -1,0 +1,23 @@
+<div class="container">
+    <h3 class="mt-3">Lista de Cursos</h3>
+    <div class="row">
+        <div class="col-6" *ngIf="cursos$ | async as cursos">
+            <div class="list-group">
+                <button class="list-group-item list-group-item-action"
+                [ngClass]="{active:curso?.id===(cursoSeleccionado$|async)?.id }"
+                *ngFor="let curso of cursos" (click)="seleccionarCurso(curso)">
+                    {{curso.nombre}} ({{curso.categoria}})
+                </button>
+            </div>
+        </div>
+        <div class="col-6">
+            <ng-container *ngIf="cursoSeleccionado$|async as cursoSeleccionado">
+                <app-detalle-curso [curso]="cursoSeleccionado"></app-detalle-curso>
+            </ng-container>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="msgsErr$ | async as mensajeError">
+    {{ mensajeError }}
+</div>

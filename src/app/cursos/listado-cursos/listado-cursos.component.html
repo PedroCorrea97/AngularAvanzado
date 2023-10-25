@@ -8,7 +8,8 @@
     <div class="row mt-3">
         <mat-form-field>
             <mat-label>Categorias</mat-label>
-            <mat-select (selectionChange)="onSelectChange($event)">
+            <mat-select (selectionChange)="onselected($event)">
+                <mat-option value="0">Mostrar Todos</mat-option>
                 <mat-option *ngFor="let cat of listadoCat$ | async" [value]="cat.id">
                     {{cat.nombre}}
                 </mat-option>
