@@ -4,6 +4,7 @@ import { ListadoCategoriasComponent } from './categorias/listado-categorias/list
 import { ListadoCursosComponent } from './cursos/listado-cursos/listado-cursos.component';
 import { ListaCursosAltComponent } from './cursos/lista-cursos-alt/lista-cursos-alt.component';
 import { AgregarCursoComponent } from './cursos/agregar-curso/agregar-curso/agregar-curso.component';
+import { EliminarCursoComponent } from './cursos/eliminar-curso/eliminar-curso/eliminar-curso.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/categorias', pathMatch: 'full' },
@@ -11,6 +12,7 @@ const routes: Routes = [
     { path: 'cursos', component: ListadoCursosComponent },
     { path: 'cursos-alt', component: ListaCursosAltComponent },
     { path: 'cursos-agr', component: AgregarCursoComponent },
+    { path: 'cursos-dlt/:id', component: EliminarCursoComponent },
 ];
 
 @NgModule({

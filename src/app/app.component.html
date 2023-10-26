@@ -21,6 +21,20 @@
     <main class="container mt-4">
         <!-- Contenido dinámico de la aplicación (se mostrará aquí) -->
         <div class="ContentFromMain">
+            <div class="container">
+                <div class="alert alert-success alert-dismissible fade show"
+                    role="alert" *ngIf="successMessage$ |async as successMessage">
+                    <p>{{successMessage}}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+                </div>
+                <div class="alert alert-danger alert-dismissible fade show"
+                    role="alert"  *ngIf="errorMessage$ |async as errorMessage">
+                    <p>{{errorMessage}}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
+                </div>
+            </div>
             <router-outlet></router-outlet>
         </div>
     </main>

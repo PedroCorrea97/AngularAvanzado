@@ -1,0 +1,25 @@
+<div class="container" *ngIf="vm$ | async as vm">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h3>¿Desea eliminar el curso? {{vm.curso.nombre}}?</h3>
+                </div>
+                <div class="card-body">
+                    <div class="card-title">Precio: {{vm.curso.precio | currency}} </div>
+                    <div>
+                        <button class="btn btn-danger me-3" (click)="elimniar(vm.curso)">
+                            Eliminar
+                        </button>
+                        <a routerLink="" class="btn btn-secondary">
+                            Regresar
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-danger" *ngIf="mensajeError$ |async as mensajeError">
+        {{ mensajeError }}
+    </div>
+</div>

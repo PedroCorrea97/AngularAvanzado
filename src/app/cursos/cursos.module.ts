@@ -8,6 +8,7 @@ import { ListaCursosAltComponent } from './lista-cursos-alt/lista-cursos-alt.com
 import { DetalleCursoComponent } from './detalle-curso/detalle-curso.component';
 import { AgregarCursoComponent } from './agregar-curso/agregar-curso/agregar-curso.component';
 import { RouterModule } from '@angular/router';
+import { EliminarCursoComponent } from './eliminar-curso/eliminar-curso/eliminar-curso.component';
 
 
 
@@ -16,7 +17,8 @@ import { RouterModule } from '@angular/router';
     ListadoCursosComponent,
     ListaCursosAltComponent,
     DetalleCursoComponent,
-    AgregarCursoComponent
+    AgregarCursoComponent,
+    EliminarCursoComponent
   ],
   imports: [
     CommonModule,

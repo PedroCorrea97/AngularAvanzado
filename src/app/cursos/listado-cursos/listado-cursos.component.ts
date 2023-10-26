@@ -18,7 +18,7 @@ export class ListadoCursosComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource: any;
   selectedCategoryId: number | null;
-  displayedColumns = ['id', 'nombre', 'categoriaId', 'precio','precioIVA','categoria'/* , 'acciones' */];
+  displayedColumns = ['id', 'nombre', 'categoriaId', 'precio','precioIVA','categoria', 'acciones'];
   pageRegister = 5;
   mensajeError = "";
   cursos$! : Observable<Cursos[]>;
