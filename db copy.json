@@ -1,0 +1,2269 @@
+{
+  "countries": [
+    {
+      "nombre": "United States",
+      "imagen_url": "https://example.com/usa.jpg"
+    },
+    {
+      "nombre": "Mexico",
+      "imagen_url": "https://example.com/mexico.jpg"
+    },
+    {
+      "nombre": "Canada",
+      "imagen_url": "https://example.com/canada.jpg"
+    },
+    {
+      "nombre": "United Kingdom",
+      "imagen_url": "https://example.com/uk.jpg"
+    },
+    {
+      "nombre": "United Arab Emirates",
+      "imagen_url": "https://example.com/uae.jpg"
+    },
+    {
+      "nombre": "France",
+      "imagen_url": "https://example.com/france.jpg"
+    }
+  ],
+  "cabinTypes": [
+    {
+      "name": "Economy Class",
+      "description": "Standard seating with basic amenities."
+    },
+    {
+      "name": "Business Class",
+      "description": "Premium seating with enhanced services."
+    },
+    {
+      "name": "First Class",
+      "description": "Luxurious seating with top-tier services."
+    },
+    {
+      "name": "Premium Economy",
+      "description": "Enhanced comfort and services, between Economy and Business Class."
+    }
+  ],
+
+  "FLIGHTS": [
+    {
+      "id": 1,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 2,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 3,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 4,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 5,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 6,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 7,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 8,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 9,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 10,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 11,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 12,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 13,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 14,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 15,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 16,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 17,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 18,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 19,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 20,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 21,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 22,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 23,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 24,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 25,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 26,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 27,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 28,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 29,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 30,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 31,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 32,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 33,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 34,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 35,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 36,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 37,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-27T08:30:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 38,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T15:45:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 39,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-28T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-28T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 40,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-27T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-27T20:15:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 41,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-29T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 42,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 43,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-30T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 44,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T20:15:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 45,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-29T08:30:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 46,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 47,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-30T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 48,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 49,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-29T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 50,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 51,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-30T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 52,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T20:15:00",
+        "code": "JFK",
+        "tz": "America/New York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 53,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-29T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 54,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 55,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-30T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 56,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 57,
+      "flight_code": "AA-123",
+      "flight_name": "American Airlines",
+      "stops": 1,
+      "cabinType": "Economy Class",
+      "currency": "USD",
+      "total": 450.25,
+      "tax": 275.50,
+      "TUA": 100.00,
+      "departureAirport": {
+        "time": "2023-10-29T08:30:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T14:45:00",
+        "code": "LHR",
+        "tz": "Europe/London",
+        "timeZone": "0.00",
+        "label": "London Heathrow Airport",
+        "country": {
+          "label": "United Kingdom",
+          "code": "GB"
+        },
+        "city": "London"
+      },
+      "duration": "8h 15m",
+      "availablepassengers": 25
+    },
+    {
+      "id": 58,
+      "flight_code": "DL-456",
+      "flight_name": "Delta Airlines",
+      "stops": 0,
+      "cabinType": "Business Class",
+      "currency": "MXN",
+      "total": 6200.00,
+      "tax": 400.75,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T10:00:00",
+        "code": "MEX",
+        "tz": "America/Mexico_City",
+        "timeZone": "-5.00",
+        "label": "Mexico City International Airport",
+        "country": {
+          "label": "Mexico",
+          "code": "MX"
+        },
+        "city": "Mexico City"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T15:45:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "5h 45m",
+      "availablepassengers": 30
+    },
+    {
+      "id": 59,
+      "flight_code": "AC-789",
+      "flight_name": "Air Canada",
+      "stops": 2,
+      "cabinType": "Premium Economy",
+      "currency": "EUR",
+      "total": 550.80,
+      "tax": 320.20,
+      "TUA": 120.00,
+      "departureAirport": {
+        "time": "2023-10-30T09:15:00",
+        "code": "YYZ",
+        "tz": "America/Toronto",
+        "timeZone": "-5.00",
+        "label": "Toronto Pearson International Airport",
+        "country": {
+          "label": "Canada",
+          "code": "CA"
+        },
+        "city": "Toronto"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T16:30:00",
+        "code": "CDG",
+        "tz": "Europe/Paris",
+        "timeZone": "1.00",
+        "label": "Charles de Gaulle Airport",
+        "country": {
+          "label": "France",
+          "code": "FR"
+        },
+        "city": "Paris"
+      },
+      "duration": "7h 15m",
+      "availablepassengers": 20
+    },
+    {
+      "id": 60,
+      "flight_code": "EK-654",
+      "flight_name": "Emirates",
+      "stops": 0,
+      "cabinType": "First Class",
+      "currency": "USD",
+      "total": 1200.00,
+      "tax": 325.40,
+      "TUA": 75.00,
+      "departureAirport": {
+        "time": "2023-10-29T14:00:00",
+        "code": "DXB",
+        "tz": "Asia/Dubai",
+        "timeZone": "4.00",
+        "label": "Dubai International Airport",
+        "country": {
+          "label": "United Arab Emirates",
+          "code": "AE"
+        },
+        "city": "Dubai"
+      },
+      "arrivalAirport": {
+        "time": "2023-10-30T20:15:00",
+        "code": "JFK",
+        "tz": "America/New_York",
+        "timeZone": "-4.00",
+        "label": "John F. Kennedy International Airport",
+        "country": {
+          "label": "United States",
+          "code": "US"
+        },
+        "city": "New York"
+      },
+      "duration": "6h 15m",
+      "availablepassengers": 30
+    }
+  ]
+}

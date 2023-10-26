@@ -1,13 +1,8 @@
-import { EMPTY, Observable, Subscription, catchError, map } from 'rxjs';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { BehaviorSubject, EMPTY, Observable, Subject, Subscription, catchError, combineLatest, map, startWith, switchMap } from 'rxjs';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { CategoriasService } from 'src/app/services/categorias/categorias.service';
-import { MatDialog } from '@angular/material/dialog';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatPaginator } from '@angular/material/paginator';
-import { Categoria } from 'src/app/models/categoria';
-import { MensajeConfirmacionComponent } from 'src/app/shared/mensaje-confirmacion/mensaje-confirmacion.component';
 import { CursosService } from 'src/app/services/cursos/cursos.service';
-import { Cursos } from 'src/app/models/cursos';
 @Component({
   selector: 'app-listado-cursos',
   templateUrl: './listado-cursos.component.html',
@@ -15,55 +10,43 @@ import { Cursos } from 'src/app/models/cursos';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ListadoCursosComponent {
+  private categoriaSeleccionadaSubject = new BehaviorSubject<number>(null);
+  categoriaSeleccionadaAction$ = this.categoriaSeleccionadaSubject.asObservable();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource: any;
   selectedCategoryId: number | null;
-  displayedColumns = ['id', 'nombre', 'categoriaId', 'precio','precioIVA','categoria'/* , 'acciones' */];
+  displayedColumns = ['id', 'nombre', 'categoria', 'precio', 'precioIVA'/* , 'acciones' */];
   pageRegister = 5;
   mensajeError = "";
-  cursos$! : Observable<Cursos[]>;
-  sub!:Subscription;
-  listadoCat$! : Observable<any>;
+  cursos$ = this.categoriaSeleccionadaAction$.pipe(
+    switchMap((categoriaSeleccionadaId) =>
+      this.cursosService.cursosConCategoria$.pipe(
+        map((cursos) => cursos.filter((curso) => categoriaSeleccionadaId ? curso.categoriaId === categoriaSeleccionadaId : true)),
+        catchError((err) => { this.mensajeError = err; return EMPTY; })
+      )
+    )
+  );
+
+  sub!: Subscription;
+  listadoCat$!: Observable<any>;
+
+
 
   constructor(
     private cursosService: CursosService,
-    private categoriesService: CategoriasService,
-    private cdr: ChangeDetectorRef,
-    private dialog: MatDialog,
-    private snackBar: MatSnackBar) {
+    private categoriesService: CategoriasService) { }
 
-  }
   ngOnInit() {
     this.initSelect();
-    this.chargeCourses();
   }
 
   private initSelect() {
     this.listadoCat$ = this.categoriesService.categoria$;
   }
 
-  private chargeCourses() {
-    this.cursos$ = this.cursosService.cursosConCategoria$.pipe(catchError(err => { this.mensajeError = err; return EMPTY; }));
-  }
 
   onSelectChange(event: any) {
-    this.selectedCategoryId = event.value;
-    this.cursos$ = this.cursosService.cursosConCategoria$.pipe(
-      catchError(err => { this.mensajeError = err; return EMPTY; }),
-      map(cursos => {
-        if (this.selectedCategoryId === null) { return cursos; }
-        return cursos.filter(curso => curso.categoriaId === this.selectedCategoryId);
-      })
-    );
+    this.categoriaSeleccionadaSubject.next(event.value);
   }
-  
 
-  deleteCategoria(categoria: Categoria) {
-    const dialogRef = this.dialog.open(MensajeConfirmacionComponent, { width: '360', data: { message: '¿Desea eliminar la categoria? ' + categoria.nombre } })
-    dialogRef.afterClosed().subscribe(resp => {
-      if (resp == 'Si') {
-        this.cursosService.delete(categoria.id).subscribe(resp => { this.chargeCourses(); this.snackBar.open(' La categoria fue elimnada con exito ', '', { duration: 3000 }); });
-      } this.cdr.detectChanges();
-    })
-  }
 }
