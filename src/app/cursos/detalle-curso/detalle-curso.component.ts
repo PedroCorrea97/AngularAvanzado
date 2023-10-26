@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy } from '@angular/compiler';
 import { Component, Input } from '@angular/core';
+import { Cursos } from 'src/app/models/cursos';
 
 @Component({
   selector: 'app-detalle-curso',
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./detalle-curso.component.scss'],
 })
 export class DetalleCursoComponent {
-
+  @Input() curso!:Cursos;
 }

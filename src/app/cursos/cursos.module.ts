@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { ListaCursosAltComponent } from './lista-cursos-alt/lista-cursos-alt.component';
 import { DetalleCursoComponent } from './detalle-curso/detalle-curso.component';
+import { AgregarCursoComponent } from './agregar-curso/agregar-curso/agregar-curso.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,13 +15,15 @@ import { DetalleCursoComponent } from './detalle-curso/detalle-curso.component';
   declarations: [
     ListadoCursosComponent,
     ListaCursosAltComponent,
-    DetalleCursoComponent
+    DetalleCursoComponent,
+    AgregarCursoComponent
   ],
   imports: [
     CommonModule,
     MaterialModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   exports: [
     ListadoCursosComponent
