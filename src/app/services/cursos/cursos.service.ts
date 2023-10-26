@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/enviroment.development';
-import { Observable, catchError, throwError, map, combineLatest } from 'rxjs';
+import { Observable, catchError, throwError, map, combineLatest, BehaviorSubject } from 'rxjs';
 import { Cursos } from 'src/app/models/cursos';
 import { CategoriasService } from '../categorias/categorias.service';
 
@@ -12,6 +12,7 @@ export class CursosService {
   apiURL = environment.apiurl;
   private http = inject(HttpClient);
   private categoriaService = inject(CategoriasService);
+  
   cursos$ = this.http.get<Cursos[]>(`${this.apiURL}` + `/cursos`,).pipe(
     map(cursos => cursos.map(curso => ({ ...curso, precioIVA: curso.precio * 1.16 }))),
     catchError(this.handleError)
@@ -25,7 +26,6 @@ export class CursosService {
       }))
     )
   );
-  
 
   delete(id: number) {
     return this.http.delete(`${this.apiURL}/cursos/${id}`).pipe(catchError(this.handleError))

@@ -1,26 +1,31 @@
 <!-- Header with Title, Image, and Tabs -->
 <div class="AllSite">
     <header>
-        <mat-toolbar>
+        <mat-toolbar color="primary">
             <!-- First row for title and image -->
-            <div class="navbar-brand d-flex align-items-center text-light">
-                <h3 class="mr-3">Im19th</h3> &nbsp;
-                <i class="fa-brands fa-twitch fa-xl"></i>        
+            <div class="navbar-brand d-flex align-items-center">
+                <h3 class="mr-3">Curso: RXJSAngular</h3>
+            </div>
+            <div class="g-font-size-15">
+                <i class="fa-brands fa-twitter"></i>
+                <!-- <img src="tu-imagen.png" alt="Imagen" style="max-height: 40px;"> -->
             </div>
             <div class="px-4">
-                <mat-chip-listbox>
-                    <mat-chip-option color="warn" [routerLink]="['/cursos']">Cursos</mat-chip-option>
-                    <mat-chip-option color="warn" [routerLink]="['/categorias']">Categorias</mat-chip-option>
-                </mat-chip-listbox>
+                <button mat-raised-button [routerLink]="['/categorias']">Categorias </button>
+                <button mat-raised-button [routerLink]="['/cursos']" class="m-2">Cursos </button>
+                <button mat-raised-button [routerLink]="['/cursos-alt']" class="m-2">Cards Curso </button>
             </div>
         </mat-toolbar>
     </header>
     <!-- Body -->
     <main class="container mt-4">
+        <!-- Contenido dinámico de la aplicación (se mostrará aquí) -->
         <div class="ContentFromMain">
-			<router-outlet></router-outlet>
-		</div>
+            <router-outlet></router-outlet>
+        </div>
     </main>
     <!-- Footer -->
-    <footer class="footer py-1"> ©Im19th 2023 </footer>
+    <footer class="footer bg-secondary text-white text-center py-3">
+        Derechos de autor ©Pitloco97 2023
+    </footer>
 </div>

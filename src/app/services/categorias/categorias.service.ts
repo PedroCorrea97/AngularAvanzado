@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, shareReplay, throwError } from 'rxjs';
 import { Categoria } from 'src/app/models/categoria';
 import { environment } from 'src/environments/enviroment.development';
 
@@ -11,7 +11,9 @@ export class CategoriasService {
   apiURL = environment.apiurl;
   private http = inject(HttpClient);
 
-  categoria$ = this.http.get<Categoria[]>(`${this.apiURL}` + `/categorias`).pipe(catchError(this.handleError));
+  categoria$ = this.http.get<Categoria[]>(`${this.apiURL}` + `/categorias`).pipe(
+    // shareReplay(1),
+    catchError(this.handleError));
 
   delete(id: number) {
     return this.http.delete(`${this.apiURL}/categorias/${id}`).pipe(catchError(this.handleError))

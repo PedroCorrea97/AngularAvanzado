@@ -10,11 +10,14 @@ import { MatPaginatorIntl } from '@angular/material/paginator';
 import { getPaginatorIntl } from './shared/customPaginatorint.util';
 import { MaterialModule } from './shared/material/material.module';
 import { AppRoutingModule } from './app-routing.module';
-import { SpinnerComponent } from './spinner/spinner.component';
-import { LoadingInterceptor } from './services/loader/loadinginterceptor.service';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { SpinnerComponent } from './spinner/spinner/spinner.component';
 
 @NgModule({
-  declarations: [ AppComponent, SpinnerComponent],
+  declarations: [
+    AppComponent,
+    SpinnerComponent,
+  ],
   imports: [
     AppRoutingModule,
     BrowserModule,
@@ -25,12 +28,7 @@ import { LoadingInterceptor } from './services/loader/loadinginterceptor.service
     MaterialModule,
     SharedModule
   ],
-  
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: LoadingInterceptor,
-    multi: true,
-  },{ provide: MatPaginatorIntl, useValue: getPaginatorIntl() },],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass:LoadingInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
