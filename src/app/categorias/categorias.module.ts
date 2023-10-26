@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { CategoriasRoutingModule } from './categorias-routing.module';
 import { ListadoCategoriasComponent } from './listado-categorias/listado-categorias.component';
-import { SharedModule } from '../shared/shared.module';
-import { CategoriasService } from '../services/categorias/categorias.service';
-import { MaterialModule } from '../shared/material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -11,12 +11,7 @@ import { MaterialModule } from '../shared/material/material.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule
-  ],
-  exports: [
-    ListadoCategoriasComponent
-  ],
-  providers: [CategoriasService]
+    CategoriasRoutingModule
+  ]
 })
-
 export class CategoriasModule { }

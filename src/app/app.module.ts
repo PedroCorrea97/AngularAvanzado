@@ -1,24 +1,22 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CategoriasModule } from './categorias/categorias.module';
-import { SharedModule } from './shared/shared.module';
-import { CursosModule } from './cursos/cursos.module';
-import { CategoriasService } from './services/categorias/categorias.service';
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { SharedModule } from "./shared/shared.module";
+import { SpinnerComponent } from "./spinner/spinner.component";
+import { LoadingInterceptor } from "./interceptors/loading.interceptor";
 
 @NgModule({
-  declarations: [
-    AppComponent,
+  declarations: [AppComponent, SpinnerComponent],
+  imports: [BrowserModule, HttpClientModule, AppRoutingModule, SharedModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
   ],
-  imports: [
-    BrowserAnimationsModule,
-    BrowserModule,
-    CategoriasModule,
-    CursosModule,
-    SharedModule
-  ],
-  providers: [CategoriasService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
