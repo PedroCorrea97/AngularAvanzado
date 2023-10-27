@@ -1,7 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/enviroment.development';
-import { Observable, catchError, throwError, map, combineLatest, BehaviorSubject } from 'rxjs';
+import { Observable, catchError, throwError, map, combineLatest, BehaviorSubject, of, Subject } from 'rxjs';
 import { Cursos } from 'src/app/models/cursos';
 import { CategoriasService } from '../categorias/categorias.service';
 
@@ -26,6 +26,37 @@ export class CursosService {
       }))
     )
   );
+//region "Métodos HTTP"
+addCurso(curso:any){
+  this.cursoAgregarSubject.next(curso);
+}
+guardar(curso:Cursos){
+  return curso.id && curso.id > 0 ? this.actualizarCurso(curso) : this.agregarCurso(curso);
+}
+agregarCurso(curso:Cursos):Observable<Cursos>{
+  return this.http.post<Cursos>(this.apiURL,curso);
+}
+
+actualizarCurso(curso:Cursos):Observable<Cursos>{
+  return this.http.put<Cursos>(`${this.apiURL}/${curso.id}`,curso);
+}
+
+
+  getCurso(id:number):Observable<Cursos>{
+    return id>0 ? this.http.get<Cursos>(`${this.apiURL}/${id}`)
+          : this.inicializarCurso();
+  }
+
+  inicializarCurso(){
+    return of({id:0,nombre:"",precio:0,categoriaId:0} as Cursos);
+  }
+
+  private cursoAgregarSubject = new Subject<Cursos>();
+  cursoAgregar$ = this.cursoAgregarSubject.asObservable();
+
+
+
+  
 
   delete(id: number) {
     return this.http.delete(`${this.apiURL}/cursos/${id}`).pipe(catchError(this.handleError))
