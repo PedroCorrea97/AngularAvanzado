@@ -1,60 +1,17 @@
 <div class="card">
   <div class="card-header">
-    {{ tituloPagina }}
+    <h3>{{tituloPagina}}</h3>
   </div>
-
-  <div class="card-body">
-    <div class="row">
-      <div class="col-6 col-md-4">
-        <select
-          class="form-select"
-          (change)="onSelected($any($event.target).value)"
-        >
-          <option [value]="0">--- Mostrar todas ---</option>
-          <option
-            *ngFor="let categoria of categorias$ | async"
-            [value]="categoria.id"
-          >
-            {{ categoria.nombre }}
-          </option>
-        </select>
-      </div>
-      <div class="col-4">
-        <a type="button"
-                    class="btn btn-outline-secondary"
-                    routerLink="agregar">Agregar Curso</a>
-      </div>
+  <div class="card-body" *ngIf="cursos$ | async as cursos">
+    <div class="list-group">
+      <button type="button" class="list-group-item"
+      *ngFor="let curso of cursos"
+      (click)="seleccionarCurso(curso.id)"
+      [ngClass]="{active: curso?.id === (cursoSeleccionado$|async)?.id}">{{curso.titulo}}</button>      
     </div>
-    <table
-      class="table table-bordered mb-0 mt-3"
-      *ngIf="cursos$ | async as cursos"
-    >
-      <thead>
-        <tr>
-          <th class="text-center">Curso</th>
-          <th class="text-center">Precio</th>
-          <th class="text-center">Precio más IVA</th>
-          <th class="text-center">Categoría</th>
-          <th class="text-center">Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let curso of cursos">
-          <td>{{ curso.nombre }}</td>
-          <td class="text-center">{{ curso.precio | currency }}</td>
-          <td class="text-center">{{ curso.precioMasIva | currency }}</td>
-          <td>{{ curso.categoria }}</td>
-          <td>
-            <a class="btn btn-outline-primary" [routerLink]="['editar',curso.id]">
-              Editar
-            </a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
   </div>
-</div>
 
-<div class="alert alert-danger" *ngIf="mensajeError">
-  {{ mensajeError }}
+  <div class="alert alert-danger" *ngIf="mensajeError">
+  {{mensajeError}}
+  </div>
 </div>

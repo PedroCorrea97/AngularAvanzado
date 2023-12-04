@@ -1,90 +1,44 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
-import { Injectable, inject } from "@angular/core";
-import { BehaviorSubject, Observable, Subject, catchError, combineLatest, map, of, tap, throwError } from "rxjs";
-import { environment } from "src/environments/environment";
-import { Curso } from "../models/curso.model";
-import { CategoriasService } from "./categorias.service";
-
-const apiUrl = environment.apiUrl;
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { Curso } from '../models/curso.model';
+import { BehaviorSubject, Observable, catchError, combineLatest, map, shareReplay, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
-
 export class CursosService {
-  private http = inject(HttpClient)
-  private categoriasService = inject(CategoriasService);
+  private url = 'http://localhost:3000/cursos';
+  http = inject(HttpClient);
 
-  private cursosUrl = apiUrl + "cursos";
+  private cursoSeleccionadoIdSubject = new BehaviorSubject<number>(0);
+  cursoSeleccionadoId$ = this.cursoSeleccionadoIdSubject.asObservable();
 
-  cursos$ = this.http.get<Curso[]>(this.cursosUrl).pipe(
-    tap(cursos => console.log("[Cursos]: ", cursos)),
-    map(cursos => cursos.map(curso => ({
-      ...curso,
-      precioMasIva: curso.precio * 1.16
-    } as Curso))),
-    catchError(this.handleError)
-  );
+  cursos$ = this.http
+    .get<Curso[]>(this.url)
+    .pipe(shareReplay(1), catchError(this.handleError));
 
-
-  cursosConCategorias$ = combineLatest([
+  cursoSeleccionado$ = combineLatest([
     this.cursos$,
-    this.categoriasService.categorias$
+    this.cursoSeleccionadoId$
   ]).pipe(
-    map(([cursos, categorias]) =>
-      cursos.map(curso => ({
-        ...curso,
-        categoria: categorias.find(cat => cat.id == curso.categoriaId)?.nombre
-      } as Curso))
-    )
+    map(([cursos,cursoSeleccionadoId])=>cursos.find((c)=>c.id===cursoSeleccionadoId))
   );
 
-  private cursoAgregarSubject = new Subject<Curso>();
-  cursoAgregar$ = this.cursoAgregarSubject.asObservable();
-
-  addCurso(curso:any){
-    this.cursoAgregarSubject.next(curso);
+  seleccionarCurso(cursoId:number){
+    this.cursoSeleccionadoIdSubject.next(cursoId);
   }
-
-  guardar(curso:Curso){
-    if(curso.id){
-      return this.actualizarCurso(curso);
-    }
-    else{
-      return this.agregarCurso(curso);
-    }
-  }
-
-
-  //region "Metodos HTTP"
-
-  agregarCurso(curso: Curso): Observable<Curso> {
-    return this.http.post<Curso>(this.cursosUrl, curso);
-  }
-
-  actualizarCurso(curso: Curso): Observable<Curso> {
-    return this.http.put<Curso>(`${this.cursosUrl}/${curso.id}`, curso);
-  }
-
-  getCurso(id: number): Observable<Curso> {
-    return id > 0 ? this.http.get<Curso>(`${this.cursosUrl}/${id}`)
-      : this.inicializarCurso();
-  }
-
-  inicializarCurso() {
-    return of({ id: 0, nombre: "", precio: 0, categoriaId: 0 } as Curso);
-  }
-
-  //end region
 
   private handleError(err: HttpErrorResponse): Observable<never> {
-    let mensajeError: string;
+    let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
-      mensajeError = `Ocurrió un error: ${err.error.message}`;
+      // Error relacionado con la red o del cliente.
+      errorMessage = `Ocurrió un error: ${err.error.message}`;
+    } else {
+      // El backend regresa un código de respuesta de error.
+      // El cuerpo de la respuesta puede contener información adicional
+      errorMessage = `El servidor regresó el siguiente código: ${err.status}, el mensaje es : ${err.message}`;
     }
-    else {
-      mensajeError = `El servidor regresó un código de error: ${err.status}: ${err.message}`;
-    }
-    return throwError(() => mensajeError);
+    console.error(errorMessage);
+    return throwError(() => errorMessage);
   }
 }

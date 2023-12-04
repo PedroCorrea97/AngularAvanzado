@@ -4,18 +4,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 
-const componentes=[HeaderComponent,FooterComponent]
+const componentes = [HeaderComponent, FooterComponent];
 
 @NgModule({
-  declarations: [
-    ...componentes
-  ],
-  imports: [
-    CommonModule,
-    RouterModule
-  ],
-  exports:[
-    ...componentes
-  ]
+  declarations: [...componentes],
+  imports: [CommonModule, RouterModule],
+  exports: [[...componentes]],
 })
-export class SharedModule { }
+export class SharedModule {}
